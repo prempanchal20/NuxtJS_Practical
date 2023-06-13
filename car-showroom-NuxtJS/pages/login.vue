@@ -6,17 +6,18 @@
             </div>
 
             <vee-form id="login-form-details" :validation-schema="loginSchema" @submit="user">
-                <label for="email">Email:</label>
+                <label for="email">Email*:</label>
                 <vee-field type="email" id="email" name="email" placeholder="Enter your mail id"
                     v-model="loginUserData.email" />
                 <ErrorMessage class="error-text" name="email" />
 
-                <label for="password">Password:</label>
+                <label for="password">Password*:</label>
 
                 <vee-field type="password" id="password" name="password" placeholder="Enter your password"
                     v-model="loginUserData.password" />
                 <ErrorMessage class="error-text" name="password" />
 
+                <div>* indicates that Field are required</div>
                 <div class="buttons">
 
                     <button type="submit" class="login-btn">
@@ -107,7 +108,7 @@ input[type="radio"] {
 
 .cancel-btn {
     border: none;
-    background-color: red;
+    background-color: rgb(219, 81, 81);
     color: white;
     padding: 10px 20px;
     border-radius: 4px;
@@ -131,7 +132,6 @@ input[type="radio"] {
 }
 
 /* Responsive Styles */
-
 @media (max-width: 500px) {
     .container {
         max-width: 100%;

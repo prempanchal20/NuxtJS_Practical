@@ -8,14 +8,8 @@
       <div class="nav-menu">
         <div class="navbar-links">
           <div class="user-name">
-            <button v-if="userValid" class="bi bi-person-circle"></button>
-            <h1 v-if="userValid">Welcome, <b>{{ userData.name }}</b><i class="bi bi-chevron-down"
-                @click="toggleUserData"></i></h1>
-            <ul v-if="showUserData" class="user-data-list">
-              <li><i class="bi bi-person"></i>{{ userData.name }}</li>
-              <li><i class="bi bi-envelope"></i>{{ userData.email }}</li>
-              <li @click="changePassword"><i class="bi bi-key"></i>Change Password</li>
-            </ul>
+            <img src="../public/assets/account.png" alt="user-icon" v-if="userValid">
+            <h3 v-if="userValid">Welcome, <b>{{ userData.name }}</b></h3>
           </div>
 
           <NuxtLink v-if="userValid" class="home" to="/">Home</NuxtLink>
@@ -32,17 +26,11 @@
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/userStore";
 import { storeToRefs } from 'pinia';
-import { ref } from 'vue';
 
 const router = useRouter();
 const userStore = useUserStore();
 const { userValid, userData } = storeToRefs(userStore)
-const showUserData = ref(false);
-
-
-const toggleUserData = () => {
-  showUserData.value = !showUserData.value;
-};
+console.log(userData.name);
 
 const logoutBtn = () => {
   const response = userStore.logout()
@@ -51,9 +39,6 @@ const logoutBtn = () => {
   }
 }
 
-const changePassword = () => {
-  alert('This Feature will be Avaliable Soon')
-}
 </script>
 
 <style>
@@ -114,10 +99,11 @@ const changePassword = () => {
   padding-left: 30px;
 }
 
-.navbar-links h1 {
+.navbar-links h3 {
   color: white;
   font-weight: 100;
   margin-left: 10px;
+  font-size: 20px;
 }
 
 .bi-person,

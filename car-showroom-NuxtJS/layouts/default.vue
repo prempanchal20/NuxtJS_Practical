@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <Navbar />
-        <slot />
-    </div>
+    <ClientOnly>
+        <div>
+            <Navbar />
+            <slot />
+        </div>
+    </ClientOnly>
 </template>

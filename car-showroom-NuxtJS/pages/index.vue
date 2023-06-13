@@ -42,5 +42,3 @@ useHead({
 })
 </script>
 
-
-/details/:carID

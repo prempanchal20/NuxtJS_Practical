@@ -9,43 +9,43 @@
         </div>
 
         <div class="car-content" v-if="!loading">
-            <transition-group name="car">
-                <div v-for="item in  showData " :key="item.id">
-                    <div class="car-card">
-                        <div class="car-box">
-                            <div class="car-container">
-                                <div class="car-images">
-                                    <img :src="item.image" alt="car - image" />
+            <TransitionGroup name="car" />
+            <div v-for="item in  showData " :key="item.id">
+                <div class="car-card">
+                    <div class="car-box">
+                        <div class="car-container">
+                            <div class="car-images">
+                                <img :src="item.image" alt="car - image" />
+                            </div>
+
+                            <div class="car-name">
+                                <h3>{{ item.name }}</h3>
+                            </div>
+
+                            <div class="description">
+                                <p>{{ truncatedDescription(item.details) }}</p>
+                            </div>
+
+                            <div class="buttons-icon">
+                                <div class="edit-icon">
+                                    <img src="../public/assets/edit.png" id="edit-icon" @click.prevent="editForm(item)"
+                                        alt="edit-icon" />
                                 </div>
 
-                                <div class="car-name">
-                                    <h3>{{ item.name }}</h3>
+                                <div class="info-button">
+                                    <NuxtLink :to="`/details/${item.id}`" class="info-btn">Info</NuxtLink>
                                 </div>
 
-                                <div class="description">
-                                    <p>{{ truncatedDescription(item.details) }}</p>
-                                </div>
-
-                                <div class="buttons-icon">
-                                    <div class="edit-icon">
-                                        <img src="../public/assets/edit.png" id="edit-icon" @click.prevent="editForm(item)"
-                                            alt="edit-icon" />
-                                    </div>
-
-                                    <div class="info-button">
-                                        <NuxtLink :to="`/details/${item.id}`" class="info-btn">Info</NuxtLink>
-                                    </div>
-
-                                    <div class="delete-icon">
-                                        <img src="../public/assets/delete.png" alt="delete-icon" id="delete-icon"
-                                            @click.prevent="deleteData(item.id, item.name)">
-                                    </div>
+                                <div class="delete-icon">
+                                    <img src="../public/assets/delete.png" alt="delete-icon" id="delete-icon"
+                                        @click.prevent="deleteData(item.id, item.name)">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </transition-group>
+            </div>
+            <TransitionGroup />
         </div>
     </section>
 </template>

@@ -7,23 +7,23 @@
                 <h2 v-else>Add car</h2>
 
                 <div class="car-details">
-                    <label for="name">Car Name: </label>
+                    <label for="name">Car Name*: </label>
                     <vee-field type="text" id="car-name" name="name" placeholder="enter car name" v-model="carData.name" />
                     <ErrorMessage class="error-text" name="name" />
 
-                    <label for="details">Car Description:</label>
+                    <label for="details">Car Description*:</label>
                     <vee-field id="car-details" name="details" as="textarea" rows="4" cols="50"
                         placeholder="enter car description" v-model="carData.details">
                     </vee-field>
 
                     <ErrorMessage class="error-text" name="details" />
 
-                    <label for="price">Car Price:</label>
+                    <label for="price">Car Price*:</label>
                     <vee-field type="number" id="price" name="price" placeholder="enter car price"
                         v-model="carData.price" />
                     <ErrorMessage class="error-text" name="price" />
 
-                    <label for="url">Car Image:</label>
+                    <label for="url">Car Image*:</label>
                     <vee-field name="url" type="url" id="car-url" placeholder="enter Image URL" v-model="carData.image" />
                     <ErrorMessage class="error-text" name="url" />
 
@@ -35,6 +35,7 @@
                         </button>
                     </div>
                 </div>
+                <div class="required-field">* indicates that Field are required</div>
             </div>
         </vee-form>
     </section>
@@ -89,7 +90,6 @@ const submitForm = () => {
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-    /* color: white; */
 }
 
 .car-details {
@@ -152,7 +152,7 @@ textarea {
 }
 
 button[type="submit"] {
-    background-color: #34d339;
+    background-color: #4c974e;
     color: white;
     padding: 10px;
     border: none;
@@ -164,7 +164,7 @@ button[type="submit"] {
 }
 
 button[type="reset"] {
-    background-color: rgb(220, 52, 52);
+    background-color: rgb(219, 91, 91);
     color: white;
     padding: 10px;
     border: none;
@@ -189,6 +189,10 @@ h2 {
 
 .error-text {
     color: rgb(219, 81, 81);
+}
+
+.required-field {
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 958px) and (min-width: 350px) {

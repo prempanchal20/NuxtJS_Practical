@@ -4,11 +4,12 @@ import axios from "axios";
 export const useUserStore = defineStore("user", {
   state: () => {
     return {
-      // userValid: JSON.parse(localStorage.getItem("loggedIn")),
+      userValid: useLocalStorage("userValid", false),
       userURL: import.meta.env.VITE_USER_API,
-      // userData: JSON.parse(localStorage.getItem("userData")) || "",
+      userData: useLocalStorage("userData") || "",
     };
   },
+
   actions: {
     //---------- Axios API - Register User-------------//
     async registerUser(userData) {
@@ -28,7 +29,7 @@ export const useUserStore = defineStore("user", {
         const logoutAlert = window.confirm(`Are You Sure Want to Logout..?`);
         if (logoutAlert === true) {
           this.userValid = false;
-          // localStorage.setItem("loggedIn", false);
+          localStorage.setItem("loggedIn", false);
           return logoutAlert;
         }
       } catch (error) {
@@ -57,7 +58,8 @@ export const useUserStore = defineStore("user", {
             this.userValid = true;
             this.userData = checkUserData;
 
-            // localStorage.setItem("userData", JSON.stringify(checkUserData));
+            localStorage.setItem("userValid", true);
+            localStorage.setItem("userData", JSON.stringify(checkUserData));
 
             // Backup Login Credentials incase above API does not work
             // try {
@@ -67,8 +69,8 @@ export const useUserStore = defineStore("user", {
             //   });
 
             //   this.userValid = true;
-            //   // localStorage.setItem("token", response.data.token);
-            //   // localStorage.setItem("loggedIn", true);
+            //   localStorage.setItem("token", response.data.token);
+            //   localStorage.setItem("loggedIn", true);
 
             //   return response.data;
             // } catch (error) {

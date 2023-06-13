@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
   components: true,
 
   modules: ["@pinia/nuxt", "@vee-validate/nuxt","@vueuse/nuxt"],
@@ -11,5 +11,8 @@ export default defineNuxtConfig({
       Form: "vee-form",
       Field: "vee-field",
     },
+  },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
 });

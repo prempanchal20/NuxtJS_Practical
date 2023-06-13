@@ -6,24 +6,24 @@
 
         <vee-form id="register-form-details" :validation-schema="registerSchema" @submit="registerUserData">
 
-            <label for="text">Name:</label>
+            <label for="text">Name*:</label>
             <vee-field type="name" id="name" name="name" placeholder="Enter your name" v-model="userData.name" />
             <ErrorMessage class="error-text" name="name" />
 
-            <label for="email">Email:</label>
+            <label for="email">Email*:</label>
             <vee-field type="email" id="email" name="email" placeholder="Enter your mail id" v-model="userData.email" />
             <ErrorMessage class="error-text" name="email" />
 
-            <label for="password">Password:</label>
+            <label for="password">Password*:</label>
             <vee-field type="password" id="password" name="password" placeholder="Enter your password"
                 v-model="userData.password" />
             <ErrorMessage class="error-text" name="password" />
 
-            <label for="password">Confirm Password:</label>
+            <label for="password">Confirm Password*:</label>
             <vee-field type="password" name="confirmation" placeholder="Confirm your password" />
             <ErrorMessage class="error-text" name="confirmation" />
 
-            <label for="role">Role:</label>
+            <label for="role">Role*:</label>
             <vee-field as="select" id="role" name="role" v-model="userData.role">
                 <option value="">Select Role</option>
                 <option value="admin">Admin</option>
@@ -33,7 +33,7 @@
             <ErrorMessage class="error-text" name="role" />
 
             <div class="gender">
-                <label class="gender">Gender:</label>
+                <label class="gender">Gender*:</label>
                 <div class="male-female">
                     <label for="male">
                         <vee-field type="radio" id="male" name="gender" value="male" v-model="userData.gender" />Male
@@ -45,13 +45,14 @@
             </div>
             <ErrorMessage class="error-text" name="gender" />
 
-            <label for="dob">Date of Birth:</label>
+            <label for="dob">Date of Birth*:</label>
             <vee-field type="date" id="dob" name="dob" v-model="userData.dob" :max="getCurrentDate()" @change="userAge" />
             <ErrorMessage class="error-text" name="dob" />
 
-            <label for="age">Age:</label>
+            <label for="age">Age*:</label>
             <vee-field type="number" id="age" name="age" placeholder="Enter your Age" v-model="userData.age" />
             <ErrorMessage class="error-text" name="age" />
+            <div>* indicates that Field are required</div>
 
             <div class="buttons">
                 <button type="submit" class="register-btn">Register</button>
