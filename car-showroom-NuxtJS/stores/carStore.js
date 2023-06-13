@@ -28,7 +28,6 @@ const useCarStore = defineStore("api", {
     //----------------Axios APIs - GET, Post, Put, Delete----------------//
 
     // GET Method - Axios API
-
     carsData() {
       axios
         .get(this.carURL)

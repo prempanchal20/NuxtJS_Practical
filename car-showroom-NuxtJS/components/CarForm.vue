@@ -42,12 +42,12 @@
 
 
 <script setup>
-// import { ref, defineEmits } from "vue";
-// import { ErrorMessage } from "vee-validate";
-// import { useCarStore } from "../stores/carStore";
-// import { reactive } from "vue";
+import { ref, defineEmits } from "vue";
+import { ErrorMessage } from "vee-validate";
+import { useCarStore } from "../stores/carStore";
+import { reactive } from "vue";
 
-// const carStore = useCarStore();
+const carStore = useCarStore();
 const schema = {
     name: "required|max:20",
     details: "required|min:30|max:120",

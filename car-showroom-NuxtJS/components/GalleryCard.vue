@@ -1,5 +1,4 @@
 <template>
-    <h1>GalleryCard</h1>
     <section>
         <div v-show="loading" class="loader">
             <img src="../public/assets/loader.gif" alt="loader" />
@@ -11,7 +10,7 @@
 
         <div class="car-content" v-if="!loading">
             <transition-group name="car">
-                <div v-for="item in showData" :key="item.id">
+                <div v-for="item in  showData " :key="item.id">
                     <div class="car-card">
                         <div class="car-box">
                             <div class="car-container">
@@ -29,24 +28,17 @@
 
                                 <div class="buttons-icon">
                                     <div class="edit-icon">
-                                        <button class="bi bi-pencil" id="edit-icon"
-                                            @click.prevent="editForm(item)"></button>
+                                        <img src="../public/assets/edit.png" id="edit-icon" @click.prevent="editForm(item)"
+                                            alt="edit-icon" />
                                     </div>
 
                                     <div class="info-button">
-                                        <button v-if="item.price === ''" class="avilable-btn">
-                                            Available Soon
-                                        </button>
-
-                                        <NuxtLink :to="{ name: 'details', params: { id: item.id } }" v-else
-                                            class="info-btn">
-                                            Info
-                                        </NuxtLink>
+                                        <NuxtLink :to="`/details/${item.id}`" class="info-btn">Info</NuxtLink>
                                     </div>
 
                                     <div class="delete-icon">
-                                        <button class="bi bi-trash" id="delete-icon"
-                                            @click.prevent="deleteData(item.id, item.name)"></button>
+                                        <img src="../public/assets/delete.png" alt="delete-icon" id="delete-icon"
+                                            @click.prevent="deleteData(item.id, item.name)">
                                     </div>
                                 </div>
                             </div>
@@ -215,10 +207,6 @@ body {
     font-size: 15px;
 }
 
-.avilable-btn {
-    font-size: 15px;
-}
-
 .button {
     position: relative;
     top: 1px;
@@ -228,11 +216,6 @@ body {
 .description {
     height: 10%;
     width: 100%;
-}
-
-.button .avilable-btn {
-    background-color: #1e1f23;
-    cursor: pointer;
 }
 
 .icons {
