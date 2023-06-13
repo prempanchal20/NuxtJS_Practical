@@ -117,6 +117,10 @@ const registerUserData = async () => {
         router.push("Login")
     }
 }
+
+useHead({
+    title: 'Car Showroom - Register'
+})
 </script>
 
 <style scoped>

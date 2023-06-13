@@ -55,6 +55,10 @@ const user = async () => {
         router.push("/")
     }
 }
+
+useHead({
+    title: 'Car Showroom - Login'
+})
 </script>
 
 <style scoped>

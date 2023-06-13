@@ -8,7 +8,6 @@
       <div class="nav-menu">
         <div class="navbar-links">
           <div class="user-name">
-            <img src="../public/assets/account.png" alt="user-icon" v-if="userValid">
             <h3 v-if="userValid">Welcome, <b>{{ userData.name }}</b></h3>
           </div>
 
@@ -29,16 +28,14 @@ import { storeToRefs } from 'pinia';
 
 const router = useRouter();
 const userStore = useUserStore();
-const { userValid, userData } = storeToRefs(userStore)
-console.log(userData.name);
 
+const { userValid, userData } = storeToRefs(userStore)
 const logoutBtn = () => {
   const response = userStore.logout()
   if (response === true) {
     router.push("/login");
   }
 }
-
 </script>
 
 <style>

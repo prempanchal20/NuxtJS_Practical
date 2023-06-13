@@ -58,28 +58,25 @@ export const useUserStore = defineStore("user", {
             this.userValid = true;
             this.userData = checkUserData;
 
-            localStorage.setItem("userValid", true);
-            localStorage.setItem("userData", JSON.stringify(checkUserData));
-
             // Backup Login Credentials incase above API does not work
-            // try {
-            //   const response = await axios.post("https://reqres.in/api/login", {
-            //     email: "eve.holt@reqres.in",
-            //     password: "cityslicka",
-            //   });
+            try {
+              const response = await axios.post("https://reqres.in/api/login", {
+                email: "eve.holt@reqres.in",
+                password: "cityslicka",
+              });
 
-            //   this.userValid = true;
-            //   localStorage.setItem("token", response.data.token);
-            //   localStorage.setItem("loggedIn", true);
+              this.userValid = true;
+              localStorage.setItem("token", response.data.token);
+              localStorage.setItem("loggedIn", true);
 
-            //   return response.data;
-            // } catch (error) {
-            //   localStorage.setItem(
-            //     "token",
-            //     `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
-            //   );
-            //   localStorage.setItem("loggedIn", true);
-            // }
+              return response.data;
+            } catch (error) {
+              localStorage.setItem(
+                "token",
+                `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
+              );
+              localStorage.setItem("loggedIn", true);
+            }
             return true;
           }
         }
