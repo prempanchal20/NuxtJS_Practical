@@ -2,14 +2,14 @@
   <section class="navbar">
     <div class="navbar-logo">
       <div class="button-home">
-        <button>Car Showroom</button>
+        <button> {{ $t("app-name") }}</button>
       </div>
 
       <div class="nav-menu">
         <div class="navbar-links">
-          <NuxtLink v-if="userValid" class="home" to="/">Home</NuxtLink>
+          <NuxtLink v-if="userValid" class="home" to="/">{{ $t("home") }}</NuxtLink>
           <NuxtLink v-else class="login" to="/login">Login</NuxtLink>
-          <button v-if="userValid" @click="logoutBtn" class="logout-btn">Logout</button>
+          <button v-if="userValid" @click="logoutBtn" class="logout-btn">{{ $t("logout") }}</button>
           <NuxtLink v-else class="register" to="/register">Register</NuxtLink>
         </div>
       </div>

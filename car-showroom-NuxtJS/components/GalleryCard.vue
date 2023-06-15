@@ -32,7 +32,7 @@
                                 </div>
 
                                 <div class="info-button">
-                                    <NuxtLink :to="`/details/${item.id}`" class="info-btn">Info</NuxtLink>
+                                    <NuxtLink :to="`/details/${item.id}`" class="info-btn">{{ $t("info") }}</NuxtLink>
                                 </div>
 
                                 <div class="delete-icon">
