@@ -1,10 +1,8 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
-
 export default defineNuxtConfig({
   devtools: { enabled: false },
   components: true,
 
-  modules: ["@pinia/nuxt", "@vee-validate/nuxt","@vueuse/nuxt"],
+  modules: ["@pinia/nuxt", "@vee-validate/nuxt", "@vueuse/nuxt", "@nuxt/image"],
   veeValidate: {
     autoImports: true,
     componentNames: {
@@ -13,6 +11,6 @@ export default defineNuxtConfig({
     },
   },
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: "page", mode: "out-in" },
   },
 });

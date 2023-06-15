@@ -7,7 +7,6 @@
         <div class="no-car-image" v-if="showData.length === 0">
             <img src="../public/assets/no-car.png" alt="no-car image" />
         </div>
-
         <div class="car-content" v-if="!loading">
             <TransitionGroup name="car" />
             <div v-for="item in  showData " :key="item.id">
@@ -15,7 +14,7 @@
                     <div class="car-box">
                         <div class="car-container">
                             <div class="car-images">
-                                <img :src="item.image" alt="car - image" />
+                                <nuxt-img :src="item.image" alt="car - image" />
                             </div>
 
                             <div class="car-name">
@@ -28,7 +27,7 @@
 
                             <div class="buttons-icon">
                                 <div class="edit-icon">
-                                    <img src="../public/assets/edit.png" id="edit-icon" @click.prevent="editForm(item)"
+                                    <nuxt-img src="../public/assets/edit.png" id="edit-icon" @click.prevent="editForm(item)"
                                         alt="edit-icon" />
                                 </div>
 
@@ -37,8 +36,8 @@
                                 </div>
 
                                 <div class="delete-icon">
-                                    <img src="../public/assets/delete.png" alt="delete-icon" id="delete-icon"
-                                        @click.prevent="deleteData(item.id, item.name)">
+                                    <nuxt-img src="../public/assets/delete.png" alt="delete-icon" id="delete-icon"
+                                        @click.prevent="deleteData(item.id, item.name)" />
                                 </div>
                             </div>
                         </div>
@@ -237,6 +236,7 @@ body {
 .menu {
     position: absolute;
     right: 10px;
+    display: flex;
 }
 
 .menu button {
@@ -253,7 +253,7 @@ body {
 
 .car-enter-active,
 .car-leave-active {
-    transition: all 0.5s ease-in;
+    transition: all 0.4s ease-in;
 }
 
 .car-enter-from,

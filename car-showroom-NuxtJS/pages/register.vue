@@ -57,6 +57,9 @@
             <div class="buttons">
                 <button type="submit" class="register-btn">Register</button>
             </div>
+            <div class="redirect">
+                <p>Already User Then <a href="/login">Login</a> Here</p>
+            </div>
         </vee-form>
     </section>
 </template>
@@ -65,11 +68,9 @@
 import { ErrorMessage } from "vee-validate";
 import { useUserStore } from "../stores/userStore";
 import { reactive } from 'vue';
-import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
 const { registerUser } = userStore;
-const router = useRouter();
 
 const registerSchema = reactive({
     name: "required",
@@ -113,8 +114,8 @@ const userAge = (e) => {
 
 const registerUserData = async () => {
     const response = await registerUser(userData)
-    if (response.status == 201) {
-        router.push("Login")
+    if (response) {
+        navigateTo({ path: '/login' })
     }
 }
 
@@ -200,6 +201,12 @@ input[type="radio"] {
 
 .error-text {
     color: rgb(219, 81, 81);
+}
+
+.redirect {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 /* Responsive Styles */

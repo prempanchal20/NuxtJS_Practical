@@ -3,7 +3,7 @@
         <button class="back-btn" @click="goBack">Back</button>
         <div class="car-data" v-if="carDetail">
             <div class="car-image-container">
-                <img v-if="carDetail.image" :src="carDetail.image" :alt="carDetail.name" class="car-image">
+                <nuxt-img v-if="carDetail.image" :src="carDetail.image" :alt="carDetail.name" class="car-image" />
             </div>
             <div class="car-info">
                 <div class="car-name">
@@ -21,12 +21,11 @@
 </template>
   
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import { useCarStore } from "../../stores/carStore";
 import { storeToRefs } from 'pinia';
 
 const route = useRoute();
-const router = useRouter();
 const carStore = useCarStore();
 
 const getCarbyID = (id) => {
@@ -42,7 +41,7 @@ const { carDetail } = storeToRefs(carStore)
 getCarbyID(route.params.carID);
 
 const goBack = () => {
-    router.push('/');
+    navigateTo({ path: '/' })
 };
 </script>
 

@@ -107,26 +107,12 @@ const submitForm = () => {
 }
 
 .modal-content {
-    background-color: #c7c0ae47;
+    background-color: #F5F5F5;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
     border-radius: 20px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .form {
@@ -153,7 +139,7 @@ textarea {
 
 button[type="submit"] {
     background-color: #4c974e;
-    color: white;
+    color: black;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -165,7 +151,7 @@ button[type="submit"] {
 
 button[type="reset"] {
     background-color: rgb(219, 91, 91);
-    color: white;
+    color: black;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -193,6 +179,7 @@ h2 {
 
 .required-field {
     margin-top: 20px;
+    color: black;
 }
 
 @media only screen and (max-width: 958px) and (min-width: 350px) {

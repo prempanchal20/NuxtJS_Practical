@@ -27,14 +27,14 @@ const useCarStore = defineStore("api", {
   actions: {
     //----------------Axios APIs - GET, Post, Put, Delete----------------//
 
-    // GET Method - Axios API
-    carsData() {
-      axios
-        .get(this.carURL)
-        .then((response) => {
-          this.showData = response.data.data;
-        })
-        .catch(() => alert("Couldn't Show The Data... Please try Again"));
+    // GET Method - useFetch Method
+    async carsData() {
+      try {
+        const data = await $fetch(this.carURL);
+        this.showData = data.data;
+      } catch {
+        alert("Couldn't Show The Data... Please try Again");
+      }
     },
 
     // GET Method by ID - Axios API

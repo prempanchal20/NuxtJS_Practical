@@ -2,6 +2,7 @@
     <section class="cars-data">
         <ul class="menu">
             <li><button @click="addCarBtn">Add Car</button></li>
+            <!-- <li class="select-language"><button>Select Language</button></li> -->
         </ul>
         <GalleryCard @editData="editForm" />
 
@@ -41,4 +42,3 @@ useHead({
     title: 'Car Showroom'
 })
 </script>
-

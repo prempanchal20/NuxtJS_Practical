@@ -11,12 +11,18 @@ export const useUserStore = defineStore("user", {
   },
 
   actions: {
-    //---------- Axios API - Register User-------------//
+    //---------- useFetch Method - Register User-------------//
     async registerUser(userData) {
       try {
-        const response = await axios.post(this.userURL, userData);
-        if (response.status === 201) {
-          alert(`User ${userData.name} Registered Successfully `);
+        const response = await $fetch(this.userURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+        if (response) {
+          alert(`User ${userData.name} Registered Successfully`);
         }
         return response;
       } catch (error) {
@@ -57,26 +63,6 @@ export const useUserStore = defineStore("user", {
             alert(`Login Successfully..!!`);
             this.userValid = true;
             this.userData = checkUserData;
-
-            // Backup Login Credentials incase above API does not work
-            try {
-              const response = await axios.post("https://reqres.in/api/login", {
-                email: "eve.holt@reqres.in",
-                password: "cityslicka",
-              });
-
-              this.userValid = true;
-              localStorage.setItem("token", response.data.token);
-              localStorage.setItem("loggedIn", true);
-
-              return response.data;
-            } catch (error) {
-              localStorage.setItem(
-                "token",
-                `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`
-              );
-              localStorage.setItem("loggedIn", true);
-            }
             return true;
           }
         }

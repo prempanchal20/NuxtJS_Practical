@@ -17,12 +17,15 @@
                     v-model="loginUserData.password" />
                 <ErrorMessage class="error-text" name="password" />
 
-                <div>* indicates that Field are required</div>
+                <div class="required-field">* indicates that Field are required</div>
                 <div class="buttons">
 
                     <button type="submit" class="login-btn">
                         Login
                     </button>
+                </div>
+                <div class="redirect">
+                    <p>New User Then <a href="/register">Register</a> Here</p>
                 </div>
             </vee-form>
         </div>
@@ -34,11 +37,9 @@
 import { ErrorMessage } from "vee-validate";
 import { useUserStore } from "../stores/userStore";
 import { reactive } from 'vue';
-import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
 const { checkUser } = userStore;
-const router = useRouter();
 
 const loginSchema = reactive({
     email: "required|email",
@@ -52,7 +53,7 @@ const loginUserData = reactive({
 const user = async () => {
     const response = await checkUser(loginUserData);
     if (response) {
-        router.push("/")
+        navigateTo({ path: '/' })
     }
 }
 
@@ -133,6 +134,12 @@ input[type="radio"] {
 
 .error-text {
     color: rgb(219, 81, 81);
+}
+
+.redirect {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 /* Responsive Styles */

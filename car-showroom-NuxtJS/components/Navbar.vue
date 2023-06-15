@@ -7,10 +7,6 @@
 
       <div class="nav-menu">
         <div class="navbar-links">
-          <div class="user-name">
-            <h3 v-if="userValid">Welcome, <b>{{ userData.name }}</b></h3>
-          </div>
-
           <NuxtLink v-if="userValid" class="home" to="/">Home</NuxtLink>
           <NuxtLink v-else class="login" to="/login">Login</NuxtLink>
           <button v-if="userValid" @click="logoutBtn" class="logout-btn">Logout</button>
@@ -22,18 +18,16 @@
 </template>
 
 <script setup>
-import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/userStore";
 import { storeToRefs } from 'pinia';
 
-const router = useRouter();
 const userStore = useUserStore();
+const { userValid } = storeToRefs(userStore);
 
-const { userValid, userData } = storeToRefs(userStore)
 const logoutBtn = () => {
   const response = userStore.logout()
   if (response === true) {
-    router.push("/login");
+    navigateTo({ path: '/login' })
   }
 }
 </script>
@@ -72,10 +66,6 @@ const logoutBtn = () => {
 .navbar-links {
   display: flex;
   justify-content: flex-end;
-}
-
-.user-name {
-  display: flex;
 }
 
 .navbar-links button {
