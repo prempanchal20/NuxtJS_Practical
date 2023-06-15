@@ -139,7 +139,7 @@ textarea {
 
 button[type="submit"] {
     background-color: #4c974e;
-    color: black;
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -151,7 +151,7 @@ button[type="submit"] {
 
 button[type="reset"] {
     background-color: rgb(219, 91, 91);
-    color: black;
+    color: white;
     padding: 10px;
     border: none;
     border-radius: 5px;

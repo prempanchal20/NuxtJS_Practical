@@ -242,12 +242,10 @@ body {
 .menu button {
     border: 1px solid #001f3f;
     border-radius: 8px;
-    padding: 5px 15px;
+    padding: 5px 10px;
     cursor: pointer;
-    background-color: transparent;
-    color: #001f3f;
-    font-size: 20px;
-    margin-right: 50px;
+    font-size: 15px;
+    margin-right: 15px;
     margin-top: 20px;
 }
 
@@ -274,5 +272,10 @@ body {
 
 .loader img {
     width: 30%;
+}
+
+#locale-select {
+    border: none;
+    border-radius: 5px;
 }
 </style>
