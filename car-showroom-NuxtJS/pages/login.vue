@@ -19,9 +19,7 @@
 
                 <div class="required-field">* indicates that field are required</div>
                 <div class="buttons">
-                    <button type="submit" class="login-btn">
-                        Login
-                    </button>
+                    <v-btn color="success" class="login-btn" type="submit">Login</v-btn>
                 </div>
             </vee-form>
         </div>
@@ -108,6 +106,7 @@ input[type="radio"] {
     width: 50%;
     padding: 10px 20px;
     border-radius: 10px;
+    margin-top: 20px;
 }
 
 .cancel-btn {
@@ -142,7 +141,8 @@ input[type="radio"] {
 }
 
 .required-field {
-    text-align: end;
+    font-size: 15px;
+    margin-top: 2px;
 }
 
 /* Responsive Styles */

@@ -183,6 +183,7 @@ h2 {
     margin-top: 20px;
     color: black;
     text-align: end;
+    font-size: 15px;
 }
 
 @media only screen and (max-width: 958px) and (min-width: 350px) {

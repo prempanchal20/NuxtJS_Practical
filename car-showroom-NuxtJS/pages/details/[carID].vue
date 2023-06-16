@@ -43,6 +43,7 @@ getCarbyID(route.params.carID);
 const goBack = () => {
     navigateTo({ path: '/' })
 };
+
 </script>
 
 <style scoped>

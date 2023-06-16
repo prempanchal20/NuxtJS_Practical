@@ -1,9 +1,9 @@
 <template>
     <section class="not-found-content">
-        <div class="not-found-heading">
-            <p>404 Not Found..!</p>
-            <h4>{{ error.statusCode }}</h4>
-            <h4>{{ error.message }}</h4>
+        <div class="not-found-image">
+            <img src="./public/assets/error.jpg" alt="404 Page Not Found Image">
+        </div>
+        <div class="go-back-btn">
             <button @click="handleError">Go Back</button>
         </div>
     </section>
@@ -12,17 +12,32 @@
 <script setup>
 const handleError = () => {
     navigateTo("/")
-}
-
-const error = useError();
+}   
 </script>
 
-<style >
-.not-found-heading p {
-    color: black;
+<style scoped>
+* {
+    background-color: #2B323C;
+}
+
+
+.not-found-image {
+    display: flex;
+    justify-content: center;
+}
+
+.go-back-btn {
     text-align: center;
-    margin-top: 20%;
-    font-size: 50px;
+    border-radius: 10px;
+}
+
+.go-back-btn button {
+    background-color: transparent;
+    font-size: 30px;
+    color: white;
+    border-radius: 15px;
+    padding: 3px 10px;
+    border: solid 1px #D9E2F7;
 }
 </style>
 

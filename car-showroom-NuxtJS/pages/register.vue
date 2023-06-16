@@ -55,7 +55,7 @@
             <div class="required-field">* indicates that Field are required</div>
 
             <div class="buttons">
-                <button type="submit" class="register-btn">Register</button>
+                <v-btn color="success" class="register-btn" type="submit">Register</v-btn>
             </div>
             <div class="redirect">
                 <p>Already User Then <a href="/login">Login</a> Here</p>
@@ -204,7 +204,7 @@ input[type="radio"] {
 }
 
 .required-field {
-    text-align: end;
+    font-size: 15px;
 }
 
 .redirect {
