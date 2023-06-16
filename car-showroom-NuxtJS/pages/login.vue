@@ -17,17 +17,16 @@
                     v-model="loginUserData.password" />
                 <ErrorMessage class="error-text" name="password" />
 
-                <div class="required-field">* indicates that Field are required</div>
+                <div class="required-field">* indicates that field are required</div>
                 <div class="buttons">
-
                     <button type="submit" class="login-btn">
                         Login
                     </button>
                 </div>
-                <div class="redirect">
-                    <p>New User Then <a href="/register">Register</a> Here</p>
-                </div>
             </vee-form>
+        </div>
+        <div class="redirect">
+            <p>New User Then <a href="/register">Register</a> Here</p>
         </div>
     </section>
 </template>
@@ -139,7 +138,11 @@ input[type="radio"] {
 .redirect {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.required-field {
+    text-align: end;
 }
 
 /* Responsive Styles */

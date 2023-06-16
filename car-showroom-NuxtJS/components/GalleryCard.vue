@@ -275,7 +275,14 @@ body {
 }
 
 #locale-select {
-    border: none;
+    border: 1px solid #001f3f;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 958px) and (min-width: 350px) {
+    .loader img {
+        margin-top: 30%;
+        width: 80%;
+    }
 }
 </style>

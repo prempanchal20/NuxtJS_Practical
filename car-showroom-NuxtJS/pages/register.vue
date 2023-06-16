@@ -52,7 +52,7 @@
             <label for="age">Age*:</label>
             <vee-field type="number" id="age" name="age" placeholder="Enter your Age" v-model="userData.age" />
             <ErrorMessage class="error-text" name="age" />
-            <div>* indicates that Field are required</div>
+            <div class="required-field">* indicates that Field are required</div>
 
             <div class="buttons">
                 <button type="submit" class="register-btn">Register</button>
@@ -201,6 +201,10 @@ input[type="radio"] {
 
 .error-text {
     color: rgb(219, 81, 81);
+}
+
+.required-field {
+    text-align: end;
 }
 
 .redirect {

@@ -1,6 +1,6 @@
 <template>
     <section>
-        <button class="back-btn" @click="goBack">Back</button>
+        <button class="back-btn" @click="goBack">Back </button>
         <div class="car-data" v-if="carDetail">
             <div class="car-image-container">
                 <nuxt-img v-if="carDetail.image" :src="carDetail.image" :alt="carDetail.name" class="car-image" />

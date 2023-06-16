@@ -2,9 +2,10 @@
     <section>
         <vee-form class="modal" :validation-schema="schema" @submit="submitForm">
             <div class="modal-content">
-
-                <h2 v-if="!openAddCarModel">Edit car</h2>
-                <h2 v-else>Add car</h2>
+                <div class="form-title">
+                    <h2 v-if="!openAddCarModel">EDIT CAR</h2>
+                    <h2 v-else>ADD CAR</h2>
+                </div>
 
                 <div class="car-details">
                     <label for="name">Car Name*: </label>
@@ -35,7 +36,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="required-field">* indicates that Field are required</div>
+                <div class="required-field">* indicates that field are required</div>
             </div>
         </vee-form>
     </section>
@@ -107,12 +108,13 @@ const submitForm = () => {
 }
 
 .modal-content {
-    background-color: #F5F5F5;
+    background-color: white;
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 1px solid #e0c4c473;
     width: 50%;
     border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .form {
@@ -134,7 +136,7 @@ textarea {
     margin-bottom: 10px;
     border-radius: 5px;
     border: none;
-    color: black;
+    border: 1px solid lightgrey;
 }
 
 button[type="submit"] {
@@ -169,7 +171,7 @@ button[type="reset"] {
 }
 
 h2 {
-    color: black;
+    color: #001f3f;
     text-align: center;
 }
 
@@ -180,6 +182,7 @@ h2 {
 .required-field {
     margin-top: 20px;
     color: black;
+    text-align: end;
 }
 
 @media only screen and (max-width: 958px) and (min-width: 350px) {

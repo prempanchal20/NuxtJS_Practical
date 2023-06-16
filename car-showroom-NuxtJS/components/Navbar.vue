@@ -125,10 +125,6 @@ const logoutBtn = () => {
 
 @media only screen and (max-width: 950px) {
 
-  .button-home {
-    width: 40%;
-  }
-
   .navbar-logo {
     padding: 3%;
   }

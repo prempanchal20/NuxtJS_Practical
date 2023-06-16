@@ -56,10 +56,10 @@ const useCarStore = defineStore("api", {
         .post(this.carURL, carData)
         .then(() => {
           alert(`"Created Data"\n
-        "Car Name is-" ${carData.name}, 
-        "Car Description is- " ${carData.details}, 
-        "Car Price is- " ${carData.price}, 
-        "Car URL is- " ${carData.image}`);
+          "Car Name is-" ${carData.name},
+          "Car Description is- " ${carData.details},
+          "Car Price is- " ${carData.price},
+          "Car URL is- " ${carData.image}`);
           this.carsData();
           this.openAddCarModel = false;
           this.openEditCarModel = false;
